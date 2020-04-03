@@ -15,5 +15,5 @@ app.use(express.json());
 app.use(rotas);
 app.use(errors());
 
-app.listen(33033);
+module.exports = app;
 
