@@ -13,58 +13,77 @@ const routes = express.Router();
 
 
 routes.get('/', (request, response) => {
-	return response.send('Bla Bla');
+	return response.send('Api da Aplicação Be The Hero. Contato: https://github.com/RenanEvangelistaPereira/be-the-hero. <!-- Retorno texto -->');
 });
 
 routes.get('/json', (request, response) => {
 	return response.json({ 
-		evento:'OminiStack',
-		aluno:'John Travolta'
+		evento:'Semana OminiStack 11',
+		aluno:'Renan Evangelista Pereira',
+		tipo: 'JSON'
 	});
 });
 
 routes.post('/users/:id', (request, response) => {
 	return response.json({ 
-		evento:'OminiStack',
-		aluno:'John Travolta'
+		evento:'Semana OminiStack 11',
+		aluno:'Renan Evangelista Pereira',
+		tipo: 'JSON',
+		call: 'request.params',
+		sample: '/users/:id'
 	});
 });
 
 routes.post('/usersQueryParams', (request, response) => {
-	const parms = request.query;
-	console.log(parms);
+	const params = request.query;
+	//console.log(params);
 	return response.json({ 
-		evento:'OminiStack',
-		aluno:'John Travolta'
+		evento:'Semana OminiStack 11',
+		aluno:'Renan Evangelista Pereira',
+		tipo: 'JSON',
+		call: 'request.query',
+		sample: '/usersQueryParams',
+		coll: params
 	});
 });
 
 routes.post('/usersRouteParams/:id', (request, response) => {
 	const params = request.params;
-	console.log(params);
+	//console.log(params);
 	return response.json({ 
-		evento:'OminiStack',
-		aluno:'John Travolta'
+		evento:'Semana OminiStack 11',
+		aluno:'Renan Evangelista Pereira',
+		tipo: 'JSON',
+		call: 'request.params',
+		sample: '/usersRouteParams/:id'
 	});
 });
 
 routes.post('/usersRouteParams/:id/:nome', (request, response) => {
-	const parms = request.params;
-	console.log(parms);
+	const params = request.params;
+	//console.log(params);
 	return response.json({ 
-		evento:'OminiStack',
-		aluno:'John Travolta'
+		evento:'Semana OminiStack 11',
+		aluno:'Renan Evangelista Pereira',
+		tipo: 'JSON',
+		call: 'request.params',
+		sample: '/usersRouteParams/:id/:nome',
+		coll: params
 	});
 });
 
 
 
 routes.post('/usersBodyParams', (request, response) => {
-	const parms = request.body;
-	console.log(parms);
+	const params = request.body;
+	//console.log(params);
 	return response.json({ 
-		evento:'Maikai',
-		aluno:'John Travolta'
+		evento:'Semana OminiStack 11',
+		aluno:'Renan Evangelista Pereira',
+		tipo: 'JSON',
+		call: 'request.params',
+		sample: '/usersBodyParams',
+		coll: params
 	});
 });
 
