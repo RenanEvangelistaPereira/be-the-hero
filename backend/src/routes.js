@@ -20,7 +20,11 @@ routes.get('/json', (request, response) => {
 	return response.json({ 
 		evento:'Semana OminiStack 11',
 		aluno:'Renan Evangelista Pereira',
-		tipo: 'JSON'
+		tipo: 'JSON',
+		RequestHeaders: request.headers,
+		RequestHostname: request.hostname,
+		RequestUrl: request.url,
+		RequestIps: request.ips
 	});
 });
 
