@@ -11,17 +11,19 @@ const app = express();
 // }));
 
 
-  var whitelist = ['http://177.200.40.161', 'http://xbase.com', 'http://localhost', 'http://127.0.0.1'];
+var whitelist = ['http://177.200.40.161', 'http://xbase.com', 'http://localhost:3000', 'http://127.0.0.1:3000'];
+//var whitelist = ['http://177.200.40.161'];
+  
   var corsOptions = { 
 	origin: function (origin, callback) {
 
 		if (process.env.NODE_ENV != 'production'){	
-		console.log('origem:' + process.env.NODE_ENV);
-		console.log('origem:' + origin);
-		console.log('callback:' + callback);	
+		//console.log('NODE_ENV:' + process.env.NODE_ENV);
+		console.log('ORIGIN:' + origin);
+		//console.log('callback:' + callback);	
 	    }
 
-	  if (whitelist.indexOf(origin) !== -1  || 1 == 1) {
+	  if (whitelist.indexOf(origin) !== -1 || 1 === 1  ) {
 		callback(null, true)
 	  } else {
 		

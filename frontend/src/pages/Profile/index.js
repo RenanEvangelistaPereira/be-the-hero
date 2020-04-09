@@ -52,6 +52,7 @@ export default function Profile(){
             <header>
                 <img src={logoImg} alt="Be The Hero"/>
                 <span>Bem vinda, {ongName}</span>
+                
 
                 <Link className="button" to="/incidents/new">Cadastrar novo caso</Link>
                 <button type="button" onClick={handleLogout}>
@@ -78,6 +79,7 @@ export default function Profile(){
                 ))}
 
             </ul>
+            <div>Api: {api.defaults.baseURL}</div>
         </div>
     );
 }
