@@ -134,7 +134,7 @@ routes.post('/ongs', celebrate({
 
 routes.get('/incidents', celebrate({
 	[Segments.QUERY]: Joi.object().keys({
-		page: Joi.number().integer(),
+		page: Joi.number().integer().required(),
 	})
 }) , IncidentController.index);
 routes.post('/incidents', IncidentController.create);
