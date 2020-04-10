@@ -14,7 +14,7 @@ export default function Detail() {
     const route = useRoute();
     const incident = route.params.incident;
 
-    const messsage = `Ola ${incident.name}, estou interessado em ajudar o caso ${incident.title} com o valor de ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(incident.value)}`;
+    const messsage = `Ola ${incident.name}, estou interessado em ajudar o caso ${incident.title} com o valor de ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(incident.value)} \n Descrição: ${incident.description}`;
 
     function navigateToIncidents(){
         //navigation.navigate('Incidents');

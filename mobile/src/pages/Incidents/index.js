@@ -15,7 +15,7 @@ export default function Incidents() {
     const [total, setTotal] = useState(0);
 
     const [msgError, setMsgError] = useState('');
-    const [responseUrl, setResponseUrl] = useState('');
+    // const [responseUrl, setResponseUrl] = useState('');
 
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
@@ -27,57 +27,35 @@ export default function Incidents() {
     }
 
     async function loadIncidents(){
-        console.log('chamando incidentes 1');
-
-        console.log(`loading = ${loading} `);
         if(loading){
             return;
         }
 
-        console.log(`total = ${total} - incidents.length = ${incidents.length} - page = ${page}`);
+        // console.log(`total = ${total} - incidents.length = ${incidents.length} - page = ${page}`);
         if (page > 1 && total > 0 && incidents.length === total){
             return;
         }
 
-       
-        
-        console.log('chamando incidentes 2');
-       
-
         try{
 
-        await setLoading(true);
-
-        console.log(`loading2 = ${loading} `);
-
-        setResponseUrl(api.defaults.baseURL); 
-
-        //const response  = await api.get('incidents', { params: page });
+        setLoading(true);
+        // setResponseUrl(api.defaults.baseURL); 
 
         const response  = await api.get('incidents', { params: { page: page} });
-
-        //const response = await api.get('incidents');
         setIncidents([...incidents, ...response.data]);
-
         setTotal(response.headers['x-total-count']);
-
         setPage(page+1);
 
         }
         catch (err) {
-            setMsgError('Erro url');
             console.log(err);
         }
         finally{
             setLoading(false);
-            console.log(`loading3 = ${loading} `);
         }
-
-       
     }
 
     useEffect( () => {
-        console.log('Carregando');
         loadIncidents();
     }, []);
 
@@ -93,7 +71,7 @@ export default function Incidents() {
 
             <Text style={styles.title}>Bem Vindo</Text>
             <Text style={styles.desciption}>Escolha um dos casos abaixo e salve o dia.</Text>
-    <Text style={styles.desciption}>{msgError} {responseUrl}</Text>
+            <Text style={styles.desciption}>{msgError}</Text>
 
 
             

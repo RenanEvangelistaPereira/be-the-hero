@@ -132,6 +132,20 @@ routes.post('/ongs', celebrate({
 	})
 }), OngController.create);
 
+routes.post('/ongs/update/:id', celebrate({
+	[Segments.BODY]: Joi.object().keys({
+		name: Joi.string().required(),
+		email: Joi.string().required().email(),
+		whatsapp: Joi.string().required().min(10).max(15),
+		city: Joi.string().required(),
+		uf: Joi.string().required().length(2),
+	}),
+	[Segments.PARAMS]: Joi.object().keys({
+		id: Joi.string().required().min(8).max(8),
+	})
+}), OngController.update);
+
+
 routes.get('/incidents', celebrate({
 	[Segments.QUERY]: Joi.object().keys({
 		page: Joi.number().integer().required(),

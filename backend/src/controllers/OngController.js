@@ -26,6 +26,24 @@ module.exports = {
 		});	
 		
 		return response.json({ id });
+	},
+
+	async update(request, response){
+		const {name, email, whatsapp, city, uf}  = request.body;
+		const { id } = request.params;
+
+		console.log(`Atualizando ${id}`);
+		
+		const res = await connection('ongs').where('id', id).update({
+			name: name,
+			email: email,
+			whatsapp: whatsapp,
+			city: city,
+			uf: uf
+		});
+		
+		return response.json({ res });
 	}
+
 
 };
