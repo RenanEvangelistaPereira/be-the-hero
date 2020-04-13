@@ -92,8 +92,6 @@ app.use(function customErrorHandler(err, req, res, next) {
 	
 
 	if(msg.code == 55000) {
-		console.log('deu 5000000');
-
 		res.status(401).json( { errorCode: msg.code , message: msg.message, detail: msg.detail } );
 	}
 	else{
